@@ -1,31 +1,150 @@
-2024-11-26 01:01:18 UTC
+2024-11-26 21:30:30 UTC
 Windows-10-10.0.22631
 Ren'Py 8.2.3.24061702
 
-Early init took 0.04s
-Loading error handling took 0.03s
-Loading script took 0.11s
-Loading save slot metadata took 0.02s
+Early init took 0.08s
+Loading error handling took 0.05s
+Loading script took 0.29s
+Loading save slot metadata took 0.03s
 Loading persistent took 0.00s
-Running init code took 0.04s
+Running init code took 0.07s
 Loading analysis data took 0.02s
 Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
+Reloading save slot metadata took 0.02s
 Index archives took 0.00s
-Dump and make backups took 0.05s
+Dump and make backups took 0.08s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc took 0.02s
+Initial gc took 0.04s
 DPI scale factor: 1.750000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Creating interface object took 0.23s
+Creating interface object took 0.39s
 Cleaning stores took 0.00s
-Init translation took 0.02s
+Init translation took 0.04s
 Build styles took 0.00s
-Load screen analysis took 0.02s
+Load screen analysis took 0.03s
 Analyze screens took 0.00s
 Save screen analysis took 0.00s
-Prepare screens took 0.05s
+Prepare screens took 0.08s
 Save pyanalysis. took 0.00s
-Save bytecode. took 0.00s
+Save bytecode. took 0.04s
+Running _start took 0.00s
+Interface start took 0.11s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2880, 1800)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Intel(R) Arc(TM) Graphics'
+Version: b'4.6.0 - Build 31.0.101.5008'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2756, 1550) drawable=(2756, 1550)
+Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/script.rpy", line 21, in script
+    "This is a custom character"
+  File "C:\Users\hhall\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 2560, in execute
+    Say.execute(self)
+  File "C:\Users\hhall\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 585, in execute
+    statement_name("say")
+  File "C:\Users\hhall\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 52, in statement_name
+    i(name)
+  File "renpy/common/000window.rpy", line 126, in _window_auto_callback
+    _window_show(auto=True)
+  File "renpy/common/000window.rpy", line 70, in _window_show
+    renpy.with_statement(trans)
+  File "C:\Users\hhall\Downloads\renpy-8.2.3-sdk\renpy\exports.py", line 1782, in with_statement
+    return renpy.game.interface.do_with(trans, paired, clear=clear)
+  File "C:\Users\hhall\Downloads\renpy-8.2.3-sdk\renpy\display\core.py", line 1549, in do_with
+    return self.interact(trans_pause=True,
+  File "C:\Users\hhall\Downloads\renpy-8.2.3-sdk\renpy\display\core.py", line 2166, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "C:\Users\hhall\Downloads\renpy-8.2.3-sdk\renpy\display\core.py", line 2819, in interact_core
+    self.draw_screen(root_widget, fullscreen_video, (not fullscreen_video) or video_frame_drawn)
+  File "C:\Users\hhall\Downloads\renpy-8.2.3-sdk\renpy\display\core.py", line 1353, in draw_screen
+    surftree = renpy.display.render.render_screen(
+  File "render.pyx", line 486, in renpy.display.render.render_screen
+  File "render.pyx", line 260, in renpy.display.render.render
+  File "C:\Users\hhall\Downloads\renpy-8.2.3-sdk\renpy\display\layout.py", line 900, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 260, in renpy.display.render.render
+  File "C:\Users\hhall\Downloads\renpy-8.2.3-sdk\renpy\display\transition.py", line 383, in render
+    bottom = render(self.old_widget, width, height, st, at)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 260, in renpy.display.render.render
+  File "C:\Users\hhall\Downloads\renpy-8.2.3-sdk\renpy\display\layout.py", line 900, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 260, in renpy.display.render.render
+  File "C:\Users\hhall\Downloads\renpy-8.2.3-sdk\renpy\display\layout.py", line 900, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 260, in renpy.display.render.render
+  File "C:\Users\hhall\Downloads\renpy-8.2.3-sdk\renpy\display\transform.py", line 955, in render
+    self.update_state()
+  File "C:\Users\hhall\Downloads\renpy-8.2.3-sdk\renpy\display\transform.py", line 1134, in update_state
+    fr = self.execute(self, self.st, self.at)
+  File "C:\Users\hhall\Downloads\renpy-8.2.3-sdk\renpy\atl.py", line 746, in execute
+    action, arg, pause = block.execute(trans, timebase, self.atl_state, events)
+  File "C:\Users\hhall\Downloads\renpy-8.2.3-sdk\renpy\atl.py", line 991, in execute
+    action, arg, pause = stmt.execute(trans, target - start, child_state, events)
+  File "C:\Users\hhall\Downloads\renpy-8.2.3-sdk\renpy\atl.py", line 1434, in execute
+    setattr(newts, k, v)
+  File "C:\Users\hhall\Downloads\renpy-8.2.3-sdk\renpy\display\transform.py", line 473, in set_align
+    self.xanchor, self.yanchor = value
+ValueError: too many values to unpack (expected 2)
+
+Executing ATL code at game/script.rpy:16
+  File "game/script.rpy", line 21, in script
+    "This is a custom character"
+  File "renpy/common/000window.rpy", line 126, in _window_auto_callback
+    _window_show(auto=True)
+  File "renpy/common/000window.rpy", line 70, in _window_show
+    renpy.with_statement(trans)
+ValueError: too many values to unpack (expected 2)
+Resetting cache.
+Early init took 19288.94s
+Loading error handling took 0.04s
+Loading script took 0.17s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.03s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\hhall\\AppData\\Roaming/RenPy/backups\\Dana Game':
+Dump and make backups took 0.06s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.07s
+DPI scale factor: 1.750000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.20s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.01s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Interface start took 0.07s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2880, 1800)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Intel(R) Arc(TM) Graphics'
+Version: b'4.6.0 - Build 31.0.101.5008'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2753, 1549) drawable=(2753, 1549)
+Maximum texture size: 4096x4096

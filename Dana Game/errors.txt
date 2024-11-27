@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 14: expected 'comma or end of line' not found.
+    transform character_transform:
+    ^
+
+Ren'Py Version: Ren'Py 8.2.3.24061702
+Tue Nov 26 16:18:26 2024
