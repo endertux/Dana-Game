@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 14: expected 'comma or end of line' not found.
-    transform character_transform:
-    ^
+File "game/script.rpy", line 77: expected statement.
+    renpy.retain_after_load()
+                             ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Tue Nov 26 16:18:26 2024
+Tue Nov 26 23:42:37 2024
