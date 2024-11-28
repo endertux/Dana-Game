@@ -1,4 +1,8 @@
-﻿# dress up mini game by dicortesia --> https://www.youtube.com/watch?v=oZU0CmyuZHE&ab_channel=dicortesia
+﻿###############################################################
+######################### Dress Up ############################
+###############################################################
+
+# dress up mini game by dicortesia --> https://www.youtube.com/watch?v=oZU0CmyuZHE&ab_channel=dicortesia
 
 #These variables correspond to the images saved in "images/Minigame". If the variable is 0, the corresponding clothes will have 0 in their filename and so on.
 #I set the default to 0, but you can set it to whatever you want.
@@ -7,7 +11,7 @@ default skirt = 0
 default socks = 0
 default top = 0
 
-define s = Character("Sweet", who_color="#000000")
+define d = Character("Dana", who_color="#000000")
 
 
 #This is where we create a separate screen for each article of clothing, as well as the character base.
@@ -163,7 +167,21 @@ layeredimage sweet:
     if socks == 3:
         "Minigame/socks_3.png"
 
+###############################################################
+######################### Gameplay ############################
+###############################################################
 label start:
+        show sweet:
+            xpos 0.35
+            ypos 0
+
+        d "test"
+        d "what a nice day"
+        d "what should I wear today?"
+
+        jump dress
+
+label dress:
     call screen outfits
 
     label instructions:
@@ -193,15 +211,15 @@ label start:
             xpos 0.35
             ypos 0
 
-        s "Hi!"
-        s "Thank you for trying this minigame!"
+        d "Hi!"
+        d "Thank you for trying this minigame!"
 
         show sweet face3
 
-        s "Please take a look at the game files, script, and video tutorial to understand how it works!"
+        d "Please take a look at the game files, script, and video tutorial to understand how it works!"
 
         show sweet face1
 
-        s "Have fun making your game!"
+        d "Have fun making your game!"
 
         return
