@@ -1,145 +1,207 @@
-﻿# character customization tutorial: https://www.youtube.com/watch?v=6pNWrjbDwIU&ab_channel=__ess__Ren%27PyTutorials
-# assets by __ess__ Ren'Py Tutorials
+﻿# dress up mini game by dicortesia --> https://www.youtube.com/watch?v=oZU0CmyuZHE&ab_channel=dicortesia
+
+#These variables correspond to the images saved in "images/Minigame". If the variable is 0, the corresponding clothes will have 0 in their filename and so on.
+#I set the default to 0, but you can set it to whatever you want.
+#We need these variables if you want to keep the outfit you chose for the rest of the game, or if you want to do a reveal at the end of the minigame.
+default skirt = 0
+default socks = 0
+default top = 0
+
+define s = Character("Sweet", who_color="#000000")
 
 
+#This is where we create a separate screen for each article of clothing, as well as the character base.
+#Make sure they're all aligned!
+screen sweet_base:
+    image "Minigame/sweet_base0.png":
+        xpos 0
+        ypos 0
 
-# check if items will be selected, switched, and then returned
-init python:
-    def customize_character(type, direction):
-        global skin_color
-        global hair_color
-        global eye_color
-        global shirt_color
+screen top0 zorder 2:
+    image "Minigame/top_0.png":
+        xpos 0
+        ypos 0
 
-        if direction == "right":
-            # check skin
-            if type == "skin":
-                if skin_colors.index(skin_color) < len(skin_colors) - 1:
-                    skin_color = skin_colors[skin_colors.index(skin_color) + 1]
-            else:
-                skin_color = skin_colors[0]
-            # check hair
-            if type == "hair":
-                if hair_colors.index(hair_color) < len(hair_colors) - 1:
-                    hair_color = hair_colors[hair_colors.index(hair_color) + 1]
-            else:
-                hair_color = hair_colors[0]
-            # check eyes
-            if type == "eyes":
-                if eye_colors.index(eye_color) < len(eye_colors) - 1:
-                    eye_color = eye_colors[eye_colors.index(eye_color) + 1]
-            else:
-                eye_color = eye_colors[0]
-            # check shirt
-            if type == "shirt":
-                if shirt_colors.index(shirt_color) < len(shirt_colors) - 1:
-                    shirt_color = shirt_colors[shirt_colors.index(shirt_color) + 1]
-            else:
-                shirt_color = shirt_colors[0]
+screen top1 zorder 2:
+    image "Minigame/top_1.png":
+        xpos 0
+        ypos 0
 
-        elif direction == "left":
-            # check skin
-            if type == "skin":
-                if skin_colors.index(skin_color) > 0:
-                    skin_color = skin_colors[skin_colors.index(skin_color) - 1]
-            else:
-                skin_color = skin_colors[-1]
-            # check hair
-            if type == "hair":
-                if hair_colors.index(hair_color) > 0:
-                    hair_color = hair_colors[hair_colors.index(hair_color) - 1]
-            else:
-                hair_color = hair_colors[-1]
-            # check eyes
-            if type == "eyes":
-                if eye_colors.index(eye_color) > 0:
-                    eye_color = eye_colors[eye_colors.index(eye_color) - 1]
-            else:
-                eye_color = eye_colors[-1]
-            # check shirt
-            if type == "shirt":
-                if shirt_colors.index(shirt_color) > 0:
-                    shirt_color = shirt_colors[shirt_colors.index(shirt_color) - 1]
-            else:
-                shirt_color = shirt_colors[-1]
-        
-    #renpy.retain_after_load()
+screen top2 zorder 2:
+    image "Minigame/top_2.png":
+        xpos 0
+        ypos 0
+
+screen top3 zorder 2:
+    image "Minigame/top_3.png":
+        xpos 0
+        ypos 0
+
+screen skirt0 zorder 1:
+    image "Minigame/skirt_0.png":
+        xpos 0
+        ypos 0
+
+screen skirt1 zorder 1:
+    image "Minigame/skirt_1.png":
+        xpos 0
+        ypos 0
+
+screen skirt2 zorder 1:
+    image "Minigame/skirt_2.png":
+        xpos 0
+        ypos 0
+
+screen skirt3 zorder 1:
+    image "Minigame/skirt_3.png":
+        xpos 0
+        ypos 0
+
+screen socks0:
+    image "Minigame/socks_0.png":
+        xpos 0
+        ypos 0
+
+screen socks1:
+    image "Minigame/socks_1.png":
+        xpos 0
+        ypos 0
+
+screen socks2:
+    image "Minigame/socks_2.png":
+        xpos 0
+        ypos 0
+
+screen socks3:
+    image "Minigame/socks_3.png":
+        xpos 0
+        ypos 0
 
 
-# player alignment
-image character = Composite(
-    (846, 1028),
-    (0, 0), "Character/hair-long-[hair_color]-back.png",
-    (0, 0), "Character/body-skin-[skin_color].png",
-    (0, 0), "Character/eyecolor-[eye_color].png",
-    (0, 0), "Character/shirt-[shirt_color].png",
-    (0, 0), "Character/hair-long-[hair_color]-front.png",
-)
+#This is where we create the main "functional" screens, making the clothes selection possible.
 
-# change size of player sprite
-transform character_transform:
-    zoom 0.5
-    align(0.0, 0.7)
+#Start button
+screen outfits:
+    image "Minigame/bg.png"
+    imagebutton auto "Minigame/start_%s.png" align(0.5, 0.40) action [Show("outfits_ui"), Show("sweet_base"), Show("top0"), Show("skirt0"), Show("socks0")]
 
-# change size, position arrows, & animate arrows
-transform arrows:
-    zoom 0.5
-    anchor(0.5, 0.5)
-    on hover:
-        zoom 0.55
-    on idle:
-        zoom 0.5
+#Minigame
+screen outfits_ui:
+    image "Minigame/bg.png"
+    image "Minigame/ui_base.png" align(1.0, 0.0)
 
-# the customization
-screen character_customization:
-    add "character" align(0.5, 0.5)
-    #add "character" at half_size align(0.5, 0.5)
-    # Hair
-    imagebutton idle "UI/arrow-right.png" align(0.7, 0.3) action Function(customize_character, type = "hair", direction = "right") at arrows
-    imagebutton idle "UI/arrow-left.png" align(0.3, 0.3) action Function(customize_character, type = "hair", direction = "left") at arrows
-    # Skin
-    imagebutton idle "UI/arrow-right.png" align(0.7, 0.4) action Function(customize_character, type = "skin", direction = "right") at arrows
-    imagebutton idle "UI/arrow-left.png" align(0.3, 0.4) action Function(customize_character, type = "skin", direction = "left") at arrows
-    # Eyes
-    imagebutton idle "UI/arrow-right.png" align(0.7, 0.5) action Function(customize_character, type = "eyes", direction = "right") at arrows
-    imagebutton idle "UI/arrow-left.png" align(0.3, 0.5) action Function(customize_character, type = "eyes", direction = "left") at arrows
-    # Shirt
-    imagebutton idle "UI/arrow-right.png" align(0.7, 0.6) action Function(customize_character, type = "shirt", direction = "right") at arrows
-    imagebutton idle "UI/arrow-left.png" align(0.3, 0.6) action Function(customize_character, type = "shirt", direction = "left") at arrows
+    imagebutton auto "Minigame/done_%s.png" align(0.67, 0.0) action Jump("instructions")
 
-# start scene
-label scene_1:
-    scene background
-    show character at character_transform
-    c "This is a custom character"
+#Tops
+    imagebutton auto "Minigame/button_top_0_%s.png" align(0.44, 0.25) action [Show("top0"), Hide("top1"), Hide("top2"), Hide("top3"), SetVariable("top", 0)]
+    imagebutton auto "Minigame/button_top_1_%s.png" align(0.44, 0.45) action [Show("top1"), Hide("top0"), Hide("top2"), Hide("top3"), SetVariable("top", 1)]
+    imagebutton auto "Minigame/button_top_2_%s.png" align(0.44, 0.65) action [Show("top2"), Hide("top1"), Hide("top0"), Hide("top3"), SetVariable("top", 2)]
+    imagebutton auto "Minigame/button_top_3_%s.png" align(0.44, 0.85) action [Show("top3"), Hide("top1"), Hide("top2"), Hide("top0"), SetVariable("top", 3)]
 
-# customization screen
-screen start_screen:
-    image "Backgrounds/background.png"
-    imagebutton auto "UI/start-button-%s.png" align(0.2, 0.9) action Jump("scene_1") #at half_size
-    hbox:
-        align(0.2, 0.1)
-        text "Character name:" size 18 color "#000000" yalign 0.5 outlines[(absolute(2), "#FFFFFF", 0, 0)]
-        frame:
-            background "#FFFFFF"
-            yalign 0.5
-            input value VariableInputValue("character_name") minwidth 150 length 10
+#Skirts
+    imagebutton auto "Minigame/button_skirt_0_%s.png" align(0.655, 0.25) action [Show("skirt0"), Hide("skirt1"), Hide("skirt2"), Hide("skirt3"), SetVariable("skirt", 0)]
+    imagebutton auto "Minigame/button_skirt_1_%s.png" align(0.655, 0.45) action [Show("skirt1"), Hide("skirt0"), Hide("skirt2"), Hide("skirt3"), SetVariable("skirt", 1)]
+    imagebutton auto "Minigame/button_skirt_2_%s.png" align(0.655, 0.65) action [Show("skirt2"), Hide("skirt1"), Hide("skirt0"), Hide("skirt3"), SetVariable("skirt", 2)]
+    imagebutton auto "Minigame/button_skirt_3_%s.png" align(0.655, 0.85) action [Show("skirt3"), Hide("skirt1"), Hide("skirt2"), Hide("skirt0"), SetVariable("skirt", 3)]
 
-    use character_customization
+#Socks
+    imagebutton auto "Minigame/button_socks_0_%s.png" align(0.875, 0.25) action [Show("socks0"), Hide("socks1"), Hide("socks2"), Hide("socks3"), SetVariable("socks", 0)]
+    imagebutton auto "Minigame/button_socks_1_%s.png" align(0.875, 0.45) action [Show("socks1"), Hide("socks0"), Hide("socks2"), Hide("socks3"), SetVariable("socks", 1)]
+    imagebutton auto "Minigame/button_socks_2_%s.png" align(0.875, 0.65) action [Show("socks2"), Hide("socks1"), Hide("socks0"), Hide("socks3"), SetVariable("socks", 2)]
+    imagebutton auto "Minigame/button_socks_3_%s.png" align(0.875, 0.85) action [Show("socks3"), Hide("socks1"), Hide("socks2"), Hide("socks0"), SetVariable("socks", 3)]
 
-define character_name = ""
-define c = Character(name = "character_name", dynamic = True)
 
-# define customization assets
+#This image can be used for the rest of the game, or just as a final reveal.
+#If this looks confusing, you can check out the video tutorial I made, or look into layered images.
+layeredimage sweet:
+    always:
+        "Minigame/sweet_base.png"
+
+    group face:
+        attribute face1 default:
+            "Minigame/sweet_face1.png"
+        attribute face2:
+            "Minigame/sweet_face2.png"
+        attribute face3:
+            "Minigame/sweet_face3.png"
+        attribute face4:
+            "Minigame/sweet_face4.png"
+
+    group top:
+        attribute 0 default:
+            "Minigame/top_0.png"
+    if top == 0:
+        "Minigame/top_0.png"
+    if top == 1:
+        "Minigame/top_1.png"
+    if top == 2:
+        "Minigame/top_2.png"
+    if top == 3:
+        "Minigame/top_3.png"
+
+    group skirt:
+        attribute 0 default:
+            "Minigame/skirt_0.png"
+    if skirt == 0:
+        "Minigame/skirt_0.png"
+    if skirt == 1:
+        "Minigame/skirt_1.png"
+    if skirt == 2:
+        "Minigame/skirt_2.png"
+    if skirt == 3:
+        "Minigame/skirt_3.png"
+
+    group socks:
+        attribute 0 default:
+            "Minigame/socks_0.png"
+    if socks == 0:
+        "Minigame/socks_0.png"
+    if socks == 1:
+        "Minigame/socks_1.png"
+    if socks == 2:
+        "Minigame/socks_2.png"
+    if socks == 3:
+        "Minigame/socks_3.png"
+
 label start:
-    $skin_colors = ["light", "medium", "dark"]
-    $hair_colors = ["blonde", "brown", "pink"]
-    $eye_colors = ["blue", "dark-pink", "green"]
-    $shirt_colors = ["blue", "green", "pink"]
+    call screen outfits
 
-    $skin_color = skin_colors[0]
-    $hair_color = hair_colors[0]
-    $eye_color = eye_colors[0]
-    $shirt_color = shirt_colors[0]
-    call screen start_screen
-    return
+    label instructions:
+        scene bg with dissolve
+
+        hide screen outfits
+        hide screen outfits_ui
+
+        hide screen sweet_base
+
+        hide screen top0
+        hide screen top1
+        hide screen top2
+        hide screen top3
+
+        hide screen skirt0
+        hide screen skirt1
+        hide screen skirt2
+        hide screen skirt3
+
+        hide screen socks0
+        hide screen socks1
+        hide screen socks2
+        hide screen socks3
+
+        show sweet:
+            xpos 0.35
+            ypos 0
+
+        s "Hi!"
+        s "Thank you for trying this minigame!"
+
+        show sweet face3
+
+        s "Please take a look at the game files, script, and video tutorial to understand how it works!"
+
+        show sweet face1
+
+        s "Have fun making your game!"
+
+        return
