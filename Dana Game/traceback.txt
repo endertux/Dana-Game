@@ -1,27 +1,27 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 143, in script
-    call screen start_screen
+  File "game/script.rpy", line 186, in script
+    call screen outfits
   File "renpy/common/000statements.rpy", line 671, in execute_call_screen
     store._return = renpy.call_screen(name, *args, **kwargs)
-  File "game/script.rpy", line 116, in execute
-    screen start_screen:
-  File "game/script.rpy", line 116, in execute
-    screen start_screen:
-  File "game/script.rpy", line 118, in execute
-    imagebutton auto "UI/start-button-%s.png" align(0.5, 0.9) action Jump("scene_1") at half_size
-  File "game/script.rpy", line 118, in keywords
-    imagebutton auto "UI/start-button-%s.png" align(0.5, 0.9) action Jump("scene_1") at half_size
-  File "game/script.rpy", line 118, in <module>
-    imagebutton auto "UI/start-button-%s.png" align(0.5, 0.9) action Jump("scene_1") at half_size
-NameError: name 'half_size' is not defined
+  File "game/script.rpy", line 19, in execute
+    screen Dana_Sprite:
+  File "game/script.rpy", line 19, in execute
+    screen Dana_Sprite:
+  File "game/script.rpy", line 20, in execute
+    image "Dana_Imgs/Dana_Top_1.png" at halfsize:
+  File "game/script.rpy", line 20, in keywords
+    image "Dana_Imgs/Dana_Top_1.png" at halfsize:
+  File "game/script.rpy", line 20, in <module>
+    image "Dana_Imgs/Dana_Top_1.png" at halfsize:
+NameError: name 'halfsize' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 143, in script
-    call screen start_screen
+  File "game/script.rpy", line 186, in script
+    call screen outfits
   File "C:\Users\hhall\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 1971, in execute
     self.call("execute")
   File "C:\Users\hhall\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 1953, in call
@@ -52,19 +52,19 @@ Full traceback:
     self.update()
   File "C:\Users\hhall\Downloads\renpy-8.2.3-sdk\renpy\display\screen.py", line 697, in update
     self.screen.function(**self.scope)
-  File "game/script.rpy", line 116, in execute
-    screen start_screen:
-  File "game/script.rpy", line 116, in execute
-    screen start_screen:
-  File "game/script.rpy", line 118, in execute
-    imagebutton auto "UI/start-button-%s.png" align(0.5, 0.9) action Jump("scene_1") at half_size
-  File "game/script.rpy", line 118, in keywords
-    imagebutton auto "UI/start-button-%s.png" align(0.5, 0.9) action Jump("scene_1") at half_size
-  File "game/script.rpy", line 118, in <module>
-    imagebutton auto "UI/start-button-%s.png" align(0.5, 0.9) action Jump("scene_1") at half_size
-NameError: name 'half_size' is not defined
+  File "game/script.rpy", line 19, in execute
+    screen Dana_Sprite:
+  File "game/script.rpy", line 19, in execute
+    screen Dana_Sprite:
+  File "game/script.rpy", line 20, in execute
+    image "Dana_Imgs/Dana_Top_1.png" at halfsize:
+  File "game/script.rpy", line 20, in keywords
+    image "Dana_Imgs/Dana_Top_1.png" at halfsize:
+  File "game/script.rpy", line 20, in <module>
+    image "Dana_Imgs/Dana_Top_1.png" at halfsize:
+NameError: name 'halfsize' is not defined
 
 Windows-10-10.0.22631 AMD64
 Ren'Py 8.2.3.24061702
 Dana Game 1.0
-Wed Nov 27 00:06:09 2024
+Thu Nov 28 18:09:25 2024
