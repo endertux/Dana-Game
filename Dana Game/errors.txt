@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 133: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    return
-    ^
+File "game/script.rpy", line 75: image name components may not begin with a '-'.
+    image Cleo - "Cleo.png"
+               ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Thu Nov 28 18:59:47 2024
+Mon Dec  2 23:17:05 2024
