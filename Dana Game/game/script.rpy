@@ -113,7 +113,7 @@ screen outfits_ui:
     image "Minigame/bg.png"
     image "Minigame/ui_base.png" align(1.0, 0.0)
 
-    imagebutton auto "Minigame/done_%s.png" align(0.67, 0.0) action Jump("instructions")
+    imagebutton auto "Minigame/done_%s.png" align(0.80, 0.75) action Jump("instructions")
 
 #Tops
     imagebutton auto "Dana_Imgs/Dana_Top_1_%s.png" align(0.655, 0.25) action [Show("top0"), Hide("top1"), SetVariable("top", 0)]
